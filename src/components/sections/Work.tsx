@@ -55,17 +55,23 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="shrink-0 font-mono text-xs text-faint">{project.role}</p>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-line px-2.5 py-1 font-mono text-[0.6875rem] text-dim transition-colors group-hover:border-cyan/40"
-          >
-            {tag}
-          </span>
-        ))}
+      {/* dải tag + 2 nút: trên mobile tách 2 hàng để nút không bị "lún" theo
+          số tag (7–10 tag, có tag dài như "Row Level Security (RLS)"),
+          từ `sm` mới xếp chung hàng và đẩy nút về mép phải. */}
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-line px-2.5 py-1 font-mono text-[0.6875rem] text-dim transition-colors group-hover:border-cyan/40"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
 
-        <span className="ml-auto flex items-center gap-3">
+        {/* vùng chạm 44px trên mobile (ngón tay), thu gọn lại từ `sm` cho gọn */}
+        <div className="flex items-center gap-3 sm:ml-auto">
           {project.url ? (
             <a
               href={project.url}
@@ -73,7 +79,7 @@ function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               aria-label={t("sec.work.open").replace("{0}", project.name)}
               data-cursor="link"
-              className="rounded-sm border border-line px-2 py-1 font-mono text-[0.6875rem] text-dim transition-colors hover:border-cyan hover:text-cyan"
+              className="inline-flex min-h-11 items-center rounded-sm border border-line px-3 font-mono text-[0.6875rem] text-dim transition-colors hover:border-cyan hover:text-cyan sm:min-h-0 sm:px-2 sm:py-1"
             >
               ↗ Github
             </a>
@@ -82,7 +88,7 @@ function ProjectCard({ project }: { project: Project }) {
           <Link
             href={localePath(lang, `/work/${project.slug}`)}
             data-cursor="link"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-cyan"
+            className="inline-flex min-h-11 items-center gap-1.5 font-mono text-xs text-cyan sm:min-h-0"
           >
             {t("sec.work.detail")}
             <span
@@ -92,7 +98,7 @@ function ProjectCard({ project }: { project: Project }) {
               →
             </span>
           </Link>
-        </span>
+        </div>
       </div>
     </motion.article>
   );
@@ -102,7 +108,7 @@ export function Work() {
   const c = useContent();
   const { t } = useLang();
   return (
-    <section id="work" className="scroll-mt-24" aria-label={t("sec.work.aria")}>
+    <section id="work" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.work.aria")}>
       <div className="container-x">
         <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div>
