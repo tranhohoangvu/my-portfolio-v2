@@ -627,12 +627,16 @@
   padding-block: 7rem;
 }
 
-/* 03 — maximalism: khối to, nghiêng, viền đậm */
-[data-theme="maximalism"] #work article:nth-child(odd) .panel {
-  transform: rotate(-0.8deg);
-}
-[data-theme="maximalism"] #work article:nth-child(2n) .panel {
-  transform: rotate(0.8deg);
+/* 03 — maximalism: khối to, nghiêng, viền đậm.
+   Xoay chỉ bật từ `lg`: ở tablet/mobile card gần chạm mép, góc nghiêng 0.8deg
+   làm viền bị cắt. */
+@media (min-width: 1024px) {
+  [data-theme="maximalism"] #work article:nth-child(odd) .panel {
+    transform: rotate(-0.8deg);
+  }
+  [data-theme="maximalism"] #work article:nth-child(2n) .panel {
+    transform: rotate(0.8deg);
+  }
 }
 [data-theme="maximalism"] h2 {
   font-size: calc(var(--text-headline) * 1.12);
