@@ -26,7 +26,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24" aria-label={t("sec.contact.aria")}>
+    <section id="contact" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.contact.aria")}>
       <div className="container-x">
         <SectionHeader
           index="08" section="contact"

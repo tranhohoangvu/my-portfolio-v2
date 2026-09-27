@@ -26,7 +26,7 @@ export function Cv() {
   const { onPointerMove } = useCardFx();
 
   return (
-    <section id="cv" className="scroll-mt-24" aria-label={t("sec.cv.aria")}>
+    <section id="cv" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.cv.aria")}>
       <div className="container-x">
         <SectionHeader
           index="02" section="cv"

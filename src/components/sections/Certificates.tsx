@@ -54,7 +54,7 @@ export function Certificates() {
       : certificates.filter((cert) => cert.category === filter);
 
   return (
-    <section id="certs" className="scroll-mt-24" aria-label={t("sec.certs.title")}>
+    <section id="certs" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.certs.title")}>
       <div className="container-x">
         <SectionHeader
           index="05" section="certs"

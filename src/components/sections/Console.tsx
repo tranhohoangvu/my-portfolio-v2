@@ -171,7 +171,7 @@ export function Console() {
   } as const;
 
   return (
-    <section id="console" className="scroll-mt-24" aria-label="Console">
+    <section id="console" className="scroll-mt-20 md:scroll-mt-24" aria-label="Console">
       <div className="container-x">
         <SectionHeader
           index="07" section="console"

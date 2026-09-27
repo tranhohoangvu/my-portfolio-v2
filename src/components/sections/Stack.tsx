@@ -35,7 +35,7 @@ export function Stack() {
   const pickedList = pickedSkill ? related(pickedSkill.slugs) : [];
 
   return (
-    <section id="stack" className="scroll-mt-24" aria-label={t("sec.stack.aria")}>
+    <section id="stack" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.stack.aria")}>
       <div className="container-x">
         <SectionHeader
           index="04"

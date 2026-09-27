@@ -86,7 +86,7 @@ export function GitHub() {
     });
 
   return (
-    <section id="github" className="scroll-mt-24" aria-label={t("sec.github.aria")}>
+    <section id="github" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.github.aria")}>
       <div className="container-x">
         <SectionHeader
           index="06" section="github"

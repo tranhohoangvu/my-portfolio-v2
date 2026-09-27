@@ -13,7 +13,7 @@ export function About() {
   const { onPointerMove } = useCardFx();
 
   return (
-    <section id="about" className="scroll-mt-24" aria-label={t("sec.about.aria")}>
+    <section id="about" className="scroll-mt-20 md:scroll-mt-24" aria-label={t("sec.about.aria")}>
       <div className="container-x">
         <SectionHeader index="01" section="about" label="about" title={t("sec.about.title")} />
 
