@@ -33,5 +33,17 @@ export const stagger = (staggerChildren = 0.08, delayChildren = 0): Variants => 
   show: { transition: { staggerChildren, delayChildren } },
 });
 
-/** viewport config dùng chung — chạy 1 lần khi vào vùng nhìn */
-export const inView = { once: true, amount: 0.25 } as const;
+/**
+ * viewport config dùng chung — chạy 1 lần khi vào vùng nhìn.
+ *
+ * Dùng `margin` thay vì `amount`: `amount` tính theo TỈ LỆ phần tử nằm trong
+ * viewport, nên với khối cao hơn viewport (danh sách 10 dự án ở #work cao tới
+ * ~4700px khi màn 360px, viewport chỉ ~770px) tỉ lệ 0.25 là bất khả thi —
+ * trình duyệt không bao giờ báo "đã vào vùng nhìn", phần tử kẹt ở `opacity: 0`
+ * và người dùng thấy một khoảng trống.
+ *
+ * `margin` so sánh theo mép nên không phụ thuộc chiều cao phần tử. Âm = kích
+ * hoạt sớm hơn (phần tử còn lệch trên viewport một chút đã bắt đầu chuyển),
+ * dương = chỉ chạy khi đã lọt sâu vào giữa màn hình.
+ */
+export const inView = { once: true, margin: "0px 0px -15% 0px" } as const;
